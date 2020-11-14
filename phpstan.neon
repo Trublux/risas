@@ -1,0 +1,7 @@
+parameters:
+	paths:
+		- app
+	excludes_analyse:
+		- tests
+	level: max
+	checkMissingIterableValueType: false

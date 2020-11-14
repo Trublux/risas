@@ -1,0 +1,45 @@
+<?php
+
+$header = <<< EOD
+(c) Israel Martín García <israel.martin.g@gmail.com>
+See LICENSE.txt for license details.
+EOD;
+
+$rules = [
+    '@Symfony' => true,
+    '@Symfony:risky' => true,
+    'array_syntax' => ['syntax' => 'short'],
+    'braces' => ['allow_single_line_closure' => true],
+    'concat_space' => ['spacing' => 'one'],
+    'header_comment' => [
+        'header' => $header,
+        'comment_type' => 'PHPDoc',
+        'location' => 'after_open',
+        'separate' => 'bottom',
+    ],
+    'heredoc_to_nowdoc' => false,
+    'list_syntax' => ['syntax' => 'short'],
+    'native_function_invocation' => ['exclude' => []],
+    'no_superfluous_phpdoc_tags' => false,
+    'no_unreachable_default_argument_value' => true,
+    'ordered_imports' => ['sortAlgorithm' => 'alpha'],
+    'phpdoc_no_package' => true,
+    'phpdoc_add_missing_param_annotation' => ['only_untyped' => false],
+    'phpdoc_annotation_without_dot' => false,
+    'phpdoc_inline_tag' => false,
+    'single_line_after_imports' => true,
+    'strict_comparison' => true,
+];
+
+$finder = PhpCsFixer\Finder::create()
+    ->in(__DIR__.'/app');
+
+$finer = PhpCsFixer\Finder::create()
+    ->in(__DIR__);
+
+return PhpCsFixer\Config::create()
+    ->setUsingCache(false)
+    ->setRules($rules)
+    ->setRiskyAllowed(true)
+    ->setLineEnding("\n")
+    ->setFinder($finder);
