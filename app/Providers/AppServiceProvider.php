@@ -1,4 +1,8 @@
 <?php
+/**
+ * (c) Israel Martín García <israel.martin.g@gmail.com>
+ * See LICENSE.txt for license details.
+ */
 
 namespace App\Providers;
 
@@ -13,7 +17,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 
     /**
@@ -23,6 +26,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 }

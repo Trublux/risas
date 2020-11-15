@@ -6,24 +6,37 @@
 
 namespace App\Commands;
 
+use App\Application\TweetsImporter;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 
-class InspiringCommand extends Command
+class ImportarVideos extends Command
 {
+    /**
+     * @var TweetsImporter
+     */
+    private $tweetsImporter;
+
     /**
      * The signature of the command.
      *
      * @var string
      */
-    protected $signature = 'inspiring {name=Artisan}';
+    protected $signature = 'importar:videos';
 
     /**
      * The description of the command.
      *
      * @var string
      */
-    protected $description = 'Display an inspiring quote';
+    protected $description = 'Importa vídeos de Twitter a Telegram';
+
+    public function __construct(TweetsImporter $tweetsImporter)
+    {
+        $this->tweetsImporter = $tweetsImporter;
+
+        parent::__construct();
+    }
 
     /**
      * Execute the console command.
@@ -32,7 +45,8 @@ class InspiringCommand extends Command
      */
     public function handle()
     {
-        $this->info('Simplicity is the ultimate sophistication.');
+        $this->tweetsImporter->handle();
+        $this->info('Fin del script');
     }
 
     /**
@@ -42,7 +56,7 @@ class InspiringCommand extends Command
      *
      * @return void
      */
-    public function schedule(Schedule $schedule)
+    public function schedule(Schedule $schedule): void
     {
         // $schedule->command(static::class)->everyMinute();
     }
