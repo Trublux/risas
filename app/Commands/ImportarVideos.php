@@ -7,7 +7,6 @@
 namespace App\Commands;
 
 use App\Application\TweetsImporter;
-use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 
 class ImportarVideos extends Command
@@ -41,23 +40,11 @@ class ImportarVideos extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         $this->tweetsImporter->handle();
         $this->info('Fin del script');
-    }
-
-    /**
-     * Define the command's schedule.
-     *
-     * @param \Illuminate\Console\Scheduling\Schedule $schedule
-     *
-     * @return void
-     */
-    public function schedule(Schedule $schedule): void
-    {
-        // $schedule->command(static::class)->everyMinute();
     }
 }

@@ -12,12 +12,24 @@ class Tweet
 
     public const MEDIA_TYPE_IMAGE = 'image';
 
+    /**
+     * @var string
+     */
     private $id;
 
+    /**
+     * @var string
+     */
     private $parentId;
 
+    /**
+     * @var string
+     */
     private $media;
 
+    /**
+     * @var string
+     */
     private $mediaType;
 
     public function setId(string $id): self

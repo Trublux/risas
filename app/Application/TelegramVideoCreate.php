@@ -12,8 +12,14 @@ use App\Infrastructure\TweetRepository;
 
 class TelegramVideoCreate
 {
+    /**
+     * @var TelegramVideoRepository
+     */
     private $telegramVideoRepository;
 
+    /**
+     * @var TweetRepository
+     */
     private $tweetRepository;
 
     public function __construct(

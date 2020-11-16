@@ -13,6 +13,9 @@ class TwitterRepository
 {
     private const TWITTER_USERNAME = 'Trublux';
 
+    /**
+     * @var TweetFactory
+     */
     private $tweetFactory;
 
     public function __construct(TweetFactory $tweetFactory)
@@ -23,8 +26,6 @@ class TwitterRepository
     public function getList(): array
     {
         $res = Http::withToken(env('TWITTER_BEARER_TOKEN'))->get('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' . self::TWITTER_USERNAME . '&tweet_mode=extended&limit=1');
-
-        $tweets = $res->json();
 
         return $res->json();
     }

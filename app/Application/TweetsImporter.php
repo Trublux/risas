@@ -12,8 +12,14 @@ class TweetsImporter
 {
     private const FILTERED_HASTAG = 'jajaja';
 
+    /**
+     * @var TwitterRepository
+     */
     private $tweeterRepository;
 
+    /**
+     * @var TelegramVideoCreate
+     */
     private $telegramVideoCreate;
 
     public function __construct(
@@ -30,7 +36,5 @@ class TweetsImporter
         foreach ($tweets as $tweet) {
             ($this->telegramVideoCreate)($tweet);
         }
-
-        return;
     }
 }
